@@ -5,7 +5,7 @@
 
 ## Course information
 1. **Course name**: Data Structures
-2. **Text book**: Fundamentals of Data Structures in C
+2. **Text book**: [Fundamentals of Data Structures in C](https://www.tenlong.com.tw/products/9780929306407)
 3. **Prerequisite**:
 -Programming experience in C, C++
 -Computational thinking
