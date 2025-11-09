@@ -63,3 +63,9 @@ for(int i=0;i<arr.size();i++){
 arr.pop_back();
 //erase the first element arr={};
 arr.erase(arr.begin());
+```
+
+## Leetcode Pratice Using Array
+1. 119.Pascal's Triangle II
+2. 1431.Kids With the Greatest Number of Candies
+3. 724.Find Pivot Index
