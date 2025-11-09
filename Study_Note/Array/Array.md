@@ -16,8 +16,9 @@ Array's operation:
 
 ## Array Declaration
 
-Declaration
+### Static Array:
 
+- Declaration
 ```cpp
 //initial an array with size 3
 int arr[3];
@@ -25,3 +26,12 @@ int arr[3];
 int arr[3]{};
 //inintial an array with size 3 but every element is specific
 int arr[3]={4,9,3};
+```
+- Traversal
+```cpp
+  int arr[3]={4,9,3};// declare
+  for(int i=0;i<3;i++){
+    cout<<arr[i]<<" ";   //output 4 9 3
+  }
+```
+### Dynamic arrary
