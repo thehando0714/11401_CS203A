@@ -14,7 +14,7 @@ Array's operation:
   1. Worst case,erase an element in the beginning of an array,⏲️time complexity :**O(n)**
   2. Best case,erase an element in the end of an array,⏲️time complexity:**O(n)**
 
-## Array Declaration
+## Array Code
 
 ### Static Array:
 
@@ -35,3 +35,31 @@ int arr[3]={4,9,3};
   }
 ```
 ### Dynamic arrary
+
+- Declaration
+```cpp
+//initial an array
+vector<int>arr;
+//initial an array with size 3
+vector<int>arr(3);
+//initial an array with size 3 but every element is 0
+vector<int>arr(3,0);
+//inintial an array with size 3 but every element is specific
+vetctor<int>arr={4,9,3};
+```
+- Traversal + Insert and Erase element
+```cpp
+//initial an array
+vector<int>arr;
+//insert 7 at the end of array
+arr.push_back(7); //arr={7};
+//insert 5 at the begin of array arr={5,7};
+arr.insert(arr.begin(),5);
+//traversal
+for(int i=0;i<arr.size();i++){
+  cout<<arr[i]<<" ";  //output 5 7
+}
+//erase a element at the end of array  arr={5};
+arr.pop_back();
+//erase the first element arr={};
+arr.erase(arr.begin());
