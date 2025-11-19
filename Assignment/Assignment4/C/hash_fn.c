@@ -8,21 +8,29 @@
     This file contains the hash functions for integer and string keys.
 
    Development History:
-    - 2025/11/11: Initial implementation
+    - 2025/11/17: Initial implementation
     - 2025/11/17: Refactored to use hash_fn.h
-
-   Developer: Yu-Feng Huang <yfhuang@saturn.yzu.edu.tw>
+    - 2025/11/19: Modified myHashInt function to multiply key by a large prime number 987654361 before %m and myHashString function to sum all character values minus 'a' before %m idea from my c++ version
+   Developer: Cheng-Jun Hu chrishu0714@gmail.com
  */
 
 #include "hash_fn.h"
 
 int myHashInt(int key, int m) {
-    // TODO: replace with your own design
-    return key % m;  // division method example
+   
+    unsigned int k = (unsigned int)key; 
+    k *= 987654361;
+    return (int)(k % m);
+    // division method example
 }
 
 int myHashString(const char* str, int m) {
     unsigned long hash = 0;
-    // TODO: replace with your own design
-    return (int)(hash % m); // basic division method
+    
+    
+    for (int i = 0; str[i] != '\0'; i++) {
+        hash += str[i] - 'a';
+    }
+    
+    return (int)(hash % m); 
 }
