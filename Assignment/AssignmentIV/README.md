@@ -5,7 +5,7 @@ evaluate their efficiency, and understand their applications in computer science
 
 - Developer: Cheng-Jun Hu 
 - Email: chrishu0714@gmail.com
-
+- Operating system: Windows11
 ## My Hash Function
 ### Integer Keys 
 - Formula / pseudocode:
@@ -30,7 +30,7 @@ evaluate their efficiency, and understand their applications in computer science
         hash+=str[i]-'a';
     }
     
-    return static_cast<int>(hash % m);  // basic division method
+    return static_cast<int>(hash % m);  
   }
   ```
 - Rationale: At first I only want to caculate the word's first letter minus 'a' to get a number,but I realized it is too easy to collision and if my table size is 37 I can't even have hash value more than 25,so I caculate not even first letter,but also every letter of word,hash could be more bigger and more unique.
@@ -129,30 +129,30 @@ evaluate their efficiency, and understand their applications in computer science
 ### Compilation
 - The project uses a comprehensive Makefile that builds both C and C++ versions with proper flags:
   ```bash
-  # Build both C and C++ versions
-  make all
   
   # Build only C version
-  make c
+  .\Makefile.bat c
   
   # Build only C++ version
-  make cxx
+  .\Makefile.bat cxx
   ```
 
 ### Manual Compilation (if needed)
 - Command for C:
   ```bash
-  gcc -std=c23 -Wall -Wextra -Wpedantic -g -o C/hash_function C/main.c C/hash_fn.c
+  gcc -std=c23 -Wall -Wextra -Wpedantic -g -o C\hash_function.exe C\main.c C\hash_fn.c
+  hash_function C/main.c C/hash_fn.c
   ```
 - Command for C++:
   ```bash
-  g++ -std=c++23 -Wall -Wextra -Wpedantic -g -o CXX/hash_function_cpp CXX/main.cpp CXX/hash_fn.cpp
+  g++ -std=c++23 -Wall -Wextra -Wpedantic -g -o CXX\hash_function_cpp.exe CXX\main.cpp CXX\hash_fn.cpp
+  hash_function_cpp CXX/main.cpp CXX/hash_fn.cpp
   ```
 
 ### Clean Build Files
 - Remove all compiled files:
   ```bash
-  make clean
+  .\Makefile.bat clean
   ```
 
 ### Execution
@@ -191,12 +191,18 @@ evaluate their efficiency, and understand their applications in computer science
 - Observations: Outputs align with the analysis, showing better distribution with prime table sizes.
 
 ## Analysis
-1. My initial design used a small prime number multiplier (13),which failed to scramble the hash value.I upgrade multiplier to a larger prime number(987654361),multiple by a large prime number ensures that small changes in the input key result a large different
+1. My initial design for integer key used a small prime number multiplier (13),which failed to scramble the hash value.I upgrade multiplier to a larger prime number(987654361),multiple by a large prime number ensures that small changes in the input key result a large different
 
-2. Table size is prime or not prime have some difference
+2. My initial design for string key used word's first letter minus 'a' to get a integer , but i found out that method collision too often .If two different words first letter is the same which cause collision,so I change my method.I used word's every letter minus 'a' and plus all of them to get a more random number,minimize collision.My method still have a little issue,if table size is too big my data can't store to the second half of my table because hash value is not big enough.
+
+3. Table size is prime or not prime have some difference
 - m=10(not prime):The result shows repeat.Since 10 has factors 2 and 5,leading to predictable clustering. 
+- m=37(prime):This table size produced more distribution for both interger and string keys,minimizing collisions.
+
+
 
 ## Reflection
 1. I use unsigned int to prevent negative number when overflow.
 2. My initial choice of multiplier (13) was ineffective, but switching to a large prime (987654361) improved the randomness.
-
+4. Design a good hash function must make your hash value more random and bigger to distribute data uniformly across all table. 
+3. A bigger and prime table size at the same time,can massively decrease collision frequency. 

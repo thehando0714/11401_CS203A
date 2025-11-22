@@ -1,4 +1,6 @@
-# Connect to GitHub with VSCode
+# Connect to GitHub with VSCode(Operating system: Windows)
+
+ 
 
 ## Prerequisites
 Before you begin, ensure you have the following:
@@ -30,11 +32,11 @@ Before you begin, ensure you have the following:
 
 5. **Make Changes and Commit**
     - Edit files in the repository as needed.
-    - Go to the Source Control view in VSCode.
-    - Stage your changes, write a commit message, and commit the changes.
-
+    - When you want to commit your file type some command in terminal:
+        1. Type `git add .` for tracked all your file
+        2. Type `git commit -m "(write some information for this commit)"`
 6. **Push Changes to GitHub**
-    - After committing, click the `Sync Changes` button in the Source Control view.
+    - After committing,type `git push origin main`
     - This will push your changes to the GitHub repository.
 
 ## Additional Tips
