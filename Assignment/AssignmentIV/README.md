@@ -53,9 +53,10 @@ evaluate their efficiency, and understand their applications in computer science
 | 11             | 10,1,9,5,10,3,9,2,7,9     | Very unique              |
 | 37             | 21,23,20,1,32,10,9,24,29,5| Very unique              |
 
-## Compilation, Build, Execution, and Output
+## Compilation, Build, Execution, and Output (Two method)
 
-### Compilation
+## First one
+### Compilation 
 - The project uses a comprehensive task.json that builds both C and C++ versions with proper flags:
   ```bash
   {
@@ -110,13 +111,9 @@ evaluate their efficiency, and understand their applications in computer science
   ```
   if you want to compile .cpp isDefault should be true like img<img width="525" height="215" alt="image" src="https://github.com/user-attachments/assets/6552c9ee-9d02-46f5-a9cc-53bc9c3c86e1" />
   and isDefault should be false like img<img width="680" height="241" alt="image" src="https://github.com/user-attachments/assets/231ca7e1-ba92-444f-b33d-687449b6d687" />
-if you want to compile .c just switch true and false.
+**if you want to compile .c just switch true and false.**
   
-
-
-### Manual Compilation (if needed)
-- Command for C or C++:
-- press ctrl+shift+b  you will get a main.exe
+- go to main.cpp or main.c and press ctrl+shift+b  you will get a main.exe
 ### Clean Build Files
 - Remove all compiled files:
   ```bash
@@ -128,7 +125,45 @@ if you want to compile .c just switch true and false.
   ```bash
   ./main.exe
   ```
+## Second one
+### Compilation
+- The project uses a comprehensive Makefile that builds both C and C++ versions with proper flags:
+  ```bash
+  # Build both C and C++ versions
+  make all
+  
+  # Build only C version
+  make c
+  
+  # Build only C++ version
+  make cxx
+  ```
 
+### Manual Compilation (if needed)
+- Command for C:
+  ```bash
+  gcc -std=c23 -Wall -Wextra -Wpedantic -g -o C/hash_function C/main.c C/hash_fn.c
+  ```
+- Command for C++:
+  ```bash
+  g++ -std=c++23 -Wall -Wextra -Wpedantic -g -o CXX/hash_function_cpp CXX/main.cpp CXX/hash_fn.cpp
+  ```
+
+### Clean Build Files
+- Remove all compiled files:
+  ```bash
+  make clean
+  ```
+
+### Execution
+- Run the compiled binary:
+  ```bash
+  ./hash_function
+  ```
+  or
+  ```bash
+  ./hash_function_cpp
+  ```
 ### Result Snapshot
 
 <img width="253" height="494" alt="image" src="https://github.com/user-attachments/assets/708a1eeb-7757-43d2-b8ab-5e2d5b207794" />
@@ -156,12 +191,12 @@ if you want to compile .c just switch true and false.
 - Observations: Outputs align with the analysis, showing better distribution with prime table sizes.
 
 ## Analysis
-- Prime vs non-prime `m`: Prime table sizes generally result in better distribution and fewer collisions.
-- Patterns or collisions: Non-prime table sizes tend to produce repetitive patterns, leading to more collisions.
-- Improvements: Use a prime table size and a well-designed hash function to enhance distribution.
+1. My initial design used a small prime number multiplier (13),which failed to scramble the hash value.I upgrade multiplier to a larger prime number(987654361),multiple by a large prime number ensures that small changes in the input key result a large different
+
+2. Table size is prime or not prime have some difference
+- m=10(not prime):The result shows repeat.Since 10 has factors 2 and 5,leading to predictable clustering. 
 
 ## Reflection
-1. Designing hash functions requires balancing simplicity and effectiveness to minimize collisions.
-2. Table size significantly impacts the uniformity of the hash distribution, with prime sizes performing better.
-3. The design using a prime table size and a linear transformation formula produced the most uniform index sequence.
+1. I use unsigned int to prevent negative number when overflow.
+2. My initial choice of multiplier (13) was ineffective, but switching to a large prime (987654361) improved the randomness.
 
