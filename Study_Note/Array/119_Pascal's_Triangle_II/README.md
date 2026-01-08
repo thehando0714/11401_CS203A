@@ -22,3 +22,5 @@ I use a 2D vector (`vvt`) to store the whole triangle. Each number in a new row 
 
 
 ---
+### 💻 Code
+[View solution.cpp](./solution.cpp)

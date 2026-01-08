@@ -21,4 +21,5 @@ Instead of calculating the sum repeatedly for every index (which is slow), I use
 ### 📉 Complexity
 - **Time**: $O(N)$ - We iterate through the array twice (once to build sums, once to find the pivot).
 - **Space**: $O(N)$ - We use an extra array `pre` of size $N+1$.
-
+### 💻 Code
+[View solution.cpp](./solution.cpp)

@@ -52,8 +52,7 @@ qu.pop();//st={5}
 ## Leetcode Pratice 
 - for stack
   1. 2390.Removing
-  2. 735.Asteroid Collision
-  3. 394.Decode String
+ 
 - for queue
   1. 1926.Nearest Exit from Entrance in Maze
-  2. 994.Rotting Oranges
+ 

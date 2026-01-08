@@ -22,3 +22,5 @@ My approach is to create a copy of the list and **sort it** to easily find the l
 - **Time**: $O(N \log N)$ - Because I used `sort()` to find the maximum value.
 - **Space**: $O(N)$ - I created a copy of the array (`vt`) to perform the sort.
 
+### 💻 Code
+[View solution.cpp](./solution.cpp)
